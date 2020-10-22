@@ -1,5 +1,6 @@
 const { readdirSync } = require('fs');
 const { resolve } = require('path');
+const config = require('../config.json');
 
 const commands = new Map();
 
@@ -25,6 +26,9 @@ async function handle(msg, savedGuild) {
       .slice(prefix.length);
   
     const command = commands.get(commandName);
+    if (command?.requiresOwner && msg.author.id !== config.authorId)
+      throw new TypeError(`Only the bot owner can use this command.`);
+
     await command?.execute(msg, ...args);
   } catch (err) {
     msg.channel.send(`⚠ ${err?.message}`);

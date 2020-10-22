@@ -1,7 +1,7 @@
-const { model, Schema, SchemaTypes, SchemaType } = require('mongoose');
+const { model, Schema } = require('mongoose');
 
 class GeneralModule {
-  prefix = '.';
+  prefix = 'yt ';
 }
 
 module.exports = model('guild', new Schema({

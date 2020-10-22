@@ -1,6 +1,6 @@
-const bot = require('../../bot');
 const EventHandler = require('./event-handler');
 const config = require('../../config.json');
+// const bot = require('../../bot');
 
 module.exports = new class extends EventHandler {
   on = 'ready';
@@ -8,6 +8,6 @@ module.exports = new class extends EventHandler {
   invoke() {
     console.log('Ready!');
 
-    bot.setActivity(config.bot.activity, { type: 'WATCHING' });
+    // bot.user?.setActivity(config.bot.activity, { type: 'WATCHING' });
   }
 }
