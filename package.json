@@ -5,7 +5,8 @@
   "main": "bot.js",
   "dependencies": {
     "discord.js": "^12.3.1",
-    "mongoose": "^5.10.9"
+    "mongoose": "^5.10.9",
+    "yt-search": "^2.3.3"
   },
   "devDependencies": {},
   "scripts": {

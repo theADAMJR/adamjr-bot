@@ -5,7 +5,8 @@
 {
   "bot": {
     "token": "NzQwNDkyODIwNTA2MzQ1NTE0.Xypzrg.XqJ6ZaPDJxHbkSAOxfl-tDmGFYg"
-  }
+  },
+  "mongoURI": "mongodb://localhost/ADAMJR-Bot"
 }
 ```
 

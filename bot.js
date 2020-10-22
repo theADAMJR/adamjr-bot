@@ -13,3 +13,5 @@ const bot = new Client();
 bot.login(config.bot.token);
 
 require('./handlers/event-handler')(bot);
+
+module.exports = bot;
