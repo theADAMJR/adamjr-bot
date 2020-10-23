@@ -8,6 +8,7 @@ module.exports = new class extends EventHandler {
   async invoke(msg) {
     const savedGuild = await guilds.get(msg.guild.id);
 
-    return handle(msg, savedGuild);
+    if (msg.content.includes(savedGuild.general.prefix))
+      await handle(msg, savedGuild);
   }
 }
