@@ -17,6 +17,8 @@ for (const file of files) {
 async function handle(msg, savedGuild) {
   try {
     const prefix = savedGuild.general.prefix;
+    if (!msg.content.startsWith(prefix)) return;
+    
     const args = msg.content
       .split(' ')
       .slice(1);
