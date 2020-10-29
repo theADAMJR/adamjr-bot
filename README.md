@@ -4,6 +4,7 @@
 ```json
 {
   "bot": {
+    "id: "308778677879963658",
     "activity": "youtube.com/ADAMJR",
     "token": "NzQwNDkyODIwNTA2MzQ1NTE0.Xypzrg.XqJ6ZaPDJxHbkSAOxfl-tDmGFYg"
   },

@@ -14,7 +14,6 @@ for (const file of files) {
 }
 
 module.exports = (bot) => {
-  for (const event of events.values()) {
-    bot.on(event.on, event.invoke.bind(event));
-  }
+  for (const event of events.values())
+    bot.on(event.on, (...args) => event.invoke(bot, ...args));
 };
