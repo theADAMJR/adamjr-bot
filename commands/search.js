@@ -17,7 +17,7 @@ module.exports = new class extends Command {
     for (const listId of listIds) {
       const { videos } = await searchYouTubeFor({ listId });
       if (videos?.length > 0)
-        allVideos.push(...videos);
+        allVideos.push(...(videos ?? []));
     }
 
     const fuse = new Fuse(allVideos, {
