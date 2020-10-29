@@ -29,6 +29,8 @@ async function handle(msg, savedGuild) {
       .slice(prefix.length);
   
     const command = commands.get(commandName);
+    if (!command) return;
+
     if (cooldowns.has(msg.author.id))
       throw new TypeError(`This command has a \`${command.cooldown}s\` cooldown.`);
 

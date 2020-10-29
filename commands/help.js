@@ -9,6 +9,7 @@ module.exports = new class extends Command {
     return msg.channel.send(
       `\`${savedGuild.general.prefix}s [...query]\` - search using saved playlists\n` +
       `\`${savedGuild.general.prefix}o [...query]\` - search on StackOverflow\n`
+      `\`${savedGuild.general.prefix}invite - get invite for bot`
     );
   }
 };
