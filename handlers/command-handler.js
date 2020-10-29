@@ -1,6 +1,7 @@
 const { readdirSync } = require('fs');
 const { resolve } = require('path');
 const config = require('../config.json');
+const cooldowns = require('../handlers/cooldown-handler');
 
 const commands = new Map();
 
@@ -28,10 +29,15 @@ async function handle(msg, savedGuild) {
       .slice(prefix.length);
   
     const command = commands.get(commandName);
+    if (cooldowns.has(msg.author.id))
+      throw new TypeError(`This command has a \`${command.cooldown}s\` cooldown.`);
+
     if (command?.requiresOwner && msg.author.id !== config.authorId)
       throw new TypeError(`Only the bot owner can use this command.`);
 
     await command?.execute(msg, ...args);
+    
+    cooldowns.add(msg.author.id, command);
   } catch (err) {
     msg.channel.send(`⚠ ${err?.message}`);
   }

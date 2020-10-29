@@ -7,9 +7,8 @@ module.exports = new class extends Command {
   async execute(msg) {
     const savedGuild = await guilds.get(msg.guild.id);
     return msg.channel.send(
-      `\`${savedGuild.general.prefix}search [...query]\`\n` +
-      `\`${savedGuild.general.prefix}add-playlist [yt_playlist_id]\`\n` +
-      `\`${savedGuild.general.prefix}remove-playlist [yt_playlist_id]\`\n`
+      `\`${savedGuild.general.prefix}s [...query]\` - search using saved playlists\n` +
+      `\`${savedGuild.general.prefix}o [...query]\` - search on StackOverflow\n`
     );
   }
 };

@@ -7,7 +7,7 @@
     "activity": "youtube.com/ADAMJR",
     "token": "NzQwNDkyODIwNTA2MzQ1NTE0.Xypzrg.XqJ6ZaPDJxHbkSAOxfl-tDmGFYg"
   },
-  "helperRoleIds": ["736566294685679687", "767381561275973644"],
+  "stackExchangeAPIKey": "<api_key>",
   "mongoURI": "mongodb://localhost/ADAMJR-Bot"
 }
 ```
