@@ -2,7 +2,7 @@ const EventHandler = require('./event-handler');
 const { handle } = require('../command-handler');
 const guilds = require('../../data/guilds');
 
-module.exports = class extends EventHandler {
+module.exports = new class extends EventHandler {
   on = 'message';
 
   async invoke(bot, msg) {
