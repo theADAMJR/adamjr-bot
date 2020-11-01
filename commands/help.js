@@ -6,10 +6,12 @@ module.exports = new class extends Command {
 
   async execute(msg) {
     const savedGuild = await guilds.get(msg.guild.id);
+    const prefix = savedGuild?.general.prefix ?? 'yt';
+    
     return msg.channel.send(
-      `\`${savedGuild.general.prefix}s [...query]\` - search using saved playlists\n` +
-      `\`${savedGuild.general.prefix}o [...query]\` - search on StackOverflow\n`
-      `\`${savedGuild.general.prefix}invite - get invite for bot`
+      `\`${prefix}s [...query]\` - search using saved playlists\n` +
+      `\`${prefix}o [...query]\` - search on StackOverflow\n`
+      `\`${prefix}invite\` - get invite for bot`
     );
   }
 };
