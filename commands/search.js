@@ -1,5 +1,5 @@
 const Command = require('./command');
-const searchYouTubeFor = require('yt-search');
+const searchYT = require('yt-search');
 const Playlist = require('../data/models/playlist');
 const Fuse = require('fuse.js');
 
@@ -15,15 +15,15 @@ module.exports = new class extends Command {
 
     let allVideos = [];
     for (const listId of listIds) {
-      const { videos } = await searchYouTubeFor({ listId });
-      if (videos?.length > 0)
-        allVideos.push(...(videos ?? []));
+      try {
+        const { videos } = await searchYT({ listId });
+        if (videos?.length > 0)
+          allVideos.push(...(videos ?? []));
+      } catch {}
     }
 
     const fuse = new Fuse(allVideos, {
-      keys: [
-        { name: 'title', weight: 1 }
-      ]
+      keys: [{ name: 'title', weight: 1 }]
     });
 
     const video = fuse
